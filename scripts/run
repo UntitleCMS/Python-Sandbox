@@ -12,7 +12,7 @@ fi
 # echo '===================================================='
 
 # Set maximum virtual memory size to (Limit_MEMORY bytes)
-ulimit -Sv $LIMIT_MEMORY
+ulimit -Sv 52428800
 
 # Run the program with CPU limit
-cpulimit -l $LIMIT_CPU python -u /sourcecode/.$1
+cpulimit -l 20 python -u /sourcecode/$1
