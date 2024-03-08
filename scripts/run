@@ -1,0 +1,18 @@
+#! /bin/bash
+
+# Check if the source file is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <source_file.py>"
+    exit 1
+fi
+
+# echo '===================================================='
+# echo "LIMIT_CPU\t:\t[$LIMIT_CPU]"
+# echo "LIMIT_MEMORY\t:\t[$LIMIT_MEMORY]"
+# echo '===================================================='
+
+# Set maximum virtual memory size to (Limit_MEMORY bytes)
+ulimit -Sv $LIMIT_MEMORY
+
+# Run the program with CPU limit
+cpulimit -l $LIMIT_CPU python -u /sourcecode/.$1
