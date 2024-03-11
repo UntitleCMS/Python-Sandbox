@@ -1,4 +1,4 @@
-FROM linuxserver/openssh-server:latest
+FROM linuxserver/openssh-server:version-9.3_p2-r1
 LABEL org.opencontainers.image.source = "https://github.com/UntitleCMS/Python-Sandbox"
 
 ENV PUBLIC_KEY_FILE=/config/authorized_keys
@@ -17,6 +17,7 @@ ENV PYTHONUNBUFFERED=1
 RUN apk add --update --no-cache python3 cpulimit && ln -sf python3 /usr/bin/python
 RUN python3 -m ensurepip
 RUN pip3 install --no-cache --upgrade pip setuptools
+RUN pip3 install --no-cache numpy pandas
 
 
 RUN echo "cd /sourcecode" >> /config/.profile
